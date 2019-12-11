@@ -15,13 +15,13 @@ function main() {
   arr.push(45);
   arr.push(10);
   // Remove last items from array
-  
+
   arr.pop();
   arr.pop();
   arr.pop();
 
   if (arr.length) {
-    for (let i=0; i = arr.length; i++) {
+    for (let i = 0; i = arr.length; i++) {
       arr.remove(0);
       console.log(arr.length);
     }
@@ -34,7 +34,8 @@ function main() {
   console.log(arr);
 }
 
-main();
+// main();
+
 //2.
 // What is the length, capacity and memory address of your array? 
 // Array { length: 1, _capacity: 3, ptr: 0 }
@@ -87,5 +88,79 @@ main();
 // And then sets the capacity to the size of the new block of memory.
 
 // 
+
+
+
+function urlIFY(string) {
+  let array = string.split(' ');
+  let answer = array.join('%20');
+  return answer;
+}
+
+// console.log(urlIFY('www.thinkful.com /tauh ida parv een'));
+
+//the big O of the above algorithm is O(n) linear.
+
+
+function filtering(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < 5) {
+      array.splice(i, 1);
+      i--;
+    }
+  }
+  return array;
+}
+
+// console.log(filtering([-20, -1, 1, 1, 2, 2, 3, 4, 5, 6, 7]));
+//the big O of the above algorithm is O(n) linear.
+
+function maxSum(array) {
+  let max = array[0];
+  let sum = array[0];
+  for (let i = 1; i < array.length; i++) {
+    sum += array[i];
+    if (sum > max) {
+      max = sum;
+    }
+  }
+  return max;
+}
+
+// console.log(maxSum([4, 6, -3, 5, -2, 1]));
+//the big O of the above algorithm is O(n) linear.
+
+function mergeArrays(arr1, arr2) {
+  for (let i = 0; i < arr2.length; i++) {
+    arr1.push(arr2[i]);
+  }
+
+  arr1.sort((a, b) => a - b);
+  return arr1;
+}
+
+// console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
+
+//the big O of the above algorithm is O(n^2) polynomial.
+
+
+function removeChar(string, chars) {
+  for (let i = 0; i < chars.length; i++) {
+    for (let j = 0; j < string.length; j++) {
+      if (string[j] === chars[i]) {
+        string = string.replace(chars[i], '');
+      }
+    }
+  }
+  return string;
+}
+
+// console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
+//the big O of the above algorithm is O(n^2) polynomial.
+
+
+
+
+
 
 
