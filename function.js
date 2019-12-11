@@ -1,6 +1,6 @@
-const Array = require('./array')
+const Array = require('./array');
 
-function main(){
+function main() {
 
   Array.SIZE_RATIO = 3;
 
@@ -14,25 +14,28 @@ function main(){
   arr.push(19);
   arr.push(45);
   arr.push(10);
-
+  // Remove last items from array
+  
   arr.pop();
   arr.pop();
   arr.pop();
 
-  if(arr.length) {
-    for(let i=0; i=arr.length; i++) {
-      arr.remove(0)
-      console.log(arr.length)
+  if (arr.length) {
+    for (let i=0; i = arr.length; i++) {
+      arr.remove(0);
+      console.log(arr.length);
     }
   }
-  
-  arr.push("tauhida");
 
-  console.log(arr)
+  arr.push('tauhida');
+  //trying to console.log 'tauhida' results in NaN.
+  // console.log(arr.get(0));
+
+  console.log(arr);
 }
 
 main();
-
+//2.
 // What is the length, capacity and memory address of your array? 
 // Array { length: 1, _capacity: 3, ptr: 0 }
 
@@ -52,6 +55,7 @@ main();
 // Prior to the this.head in memory being set to a value of 12, the start value of 3 (from previously) is returned. 
 // So the pointer value that we are left with is 3.
 
+//3. 
 // What is the length, capacity, and address of your array? 
 // Explain the result of your program after adding the new lines of code.
 // Array { length: 3, _capacity: 12, ptr: 3 }
@@ -60,12 +64,16 @@ main();
 // However, it did not change the memory blocks allotted for the array so the capacity is still at 12. 
 // It also did not change the position of the pointer, leaving it at 3.
 
+//4.
 // We use "arr.get(0)" and get "3".
 
 // Print this 1 item that you just added. What is the result? Can you explain your result?
 // Array { length: 1, _capacity: 12, ptr: 3 }
 // There is only 1 item, but capacity and ptr still the same.
 // Even when we remove from the array, allotted memory blocks don't change it.
+//However, when we try to console.log(arr.get(0)) we receive NAN. This is because 
+// 'tauhida' is a string but it is conflicting with how we defined the memory class
+// to be a new Float64Array which would only take numbers.
 
 // What is the purpose of the _resize() function in your Array class?
 // The resize function helps to allot more memory blocks to allow the array to be resized or changed. 
