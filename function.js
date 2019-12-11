@@ -98,8 +98,7 @@ function urlIFY(string) {
 }
 
 // console.log(urlIFY('www.thinkful.com /tauh ida parv een'));
-
-//the big O of the above algorithm is O(n) linear.
+// the big O of the above algorithm is O(n) linear.
 
 
 function filtering(array) {
@@ -113,7 +112,7 @@ function filtering(array) {
 }
 
 // console.log(filtering([-20, -1, 1, 1, 2, 2, 3, 4, 5, 6, 7]));
-//the big O of the above algorithm is O(n) linear.
+// the big O of the above algorithm is O(n) linear.
 
 function maxSum(array) {
   let max = array[0];
@@ -128,7 +127,7 @@ function maxSum(array) {
 }
 
 // console.log(maxSum([4, 6, -3, 5, -2, 1]));
-//the big O of the above algorithm is O(n) linear.
+// the big O of the above algorithm is O(n) linear.
 
 function mergeArrays(arr1, arr2) {
   for (let i = 0; i < arr2.length; i++) {
@@ -140,8 +139,7 @@ function mergeArrays(arr1, arr2) {
 }
 
 // console.log(mergeArrays([1, 3, 6, 8, 11], [2, 3, 5, 8, 9, 10]));
-
-//the big O of the above algorithm is O(n^2) polynomial.
+// the big O of the above algorithm is O(n^2) polynomial.
 
 
 function removeChar(string, chars) {
@@ -156,11 +154,66 @@ function removeChar(string, chars) {
 }
 
 // console.log(removeChar('Battle of the Vowels: Hawaii vs. Grozny', 'aeiou'));
-//the big O of the above algorithm is O(n^2) polynomial.
+// the big O of the above algorithm is O(n^2) polynomial.
 
+function products(arr) {
+  let result = 1;
+  let total = [];
+  for(let i=0; i<arr.length; i++) {
+    result = result * arr[i]
+  }
+  for(let j=0; j<arr.length; j++) {
+    total.push(result / arr[j])
+  }
+  return total;
+}
 
+// console.log(products([1, 3, 9, 4]));
+// the big O of the above algorithm is 0(n^2) polynomial.
 
+function twoD(arr) {
+  let newarr = [];
+  for(let x=0; x<arr.length; x++) {
+    newarr.push([...arr[x]])
+  }
+  // x = row
+  for(let x=0; x<arr.length; x++) {
+    // y = column
+    for(let y=0; y<arr[x].length; y++) {
+      if(arr[x][y] === 0) {
+        for(let z=0; z<arr[x].length; z++) {
+          newarr[x][z] = 0;
+        }
+        for(let m=0; m<arr.length; m++) {
+          newarr[m][y] = 0;
+        }
+      }
+    }
+  }
 
+  return newarr;
+}
 
+// console.log(twoD(
+//   [[1,0,1,1,0],
+//   [0,1,1,1,0],
+//   [1,1,1,1,1],
+//   [1,0,1,1,1],
+//   [1,1,1,1,1]]
+// ));
+// the big O of the above algorithm is o(n^4) polynomial.
+
+function rotation(str1, str2) {
+  for(let i=0; i<str1.length; i++) {
+    let newstr = str2[i] + str2.slice(i+1) + str2.slice(0, i);
+    if(newstr === str1) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// console.log(rotation('amazon', 'azonam'));
+// the big O of the above algorithm is 0(n) linear.
 
 
